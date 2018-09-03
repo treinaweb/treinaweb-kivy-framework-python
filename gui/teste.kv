@@ -1,9 +1,12 @@
 <Principal>:
     Label:
+        id: label_principal
         text: 'Olá mundo!!'
         font_size: 20
     Button:
         text: 'Eu sou um botão'
+        on_press: root.teste()
+        on_release: label_principal.text = 'O botão foi solto'
 
 <Secundario>:
     Label:
