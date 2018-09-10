@@ -1,9 +1,14 @@
 from kivy.app import App
+from kivy.properties import partial
 from kivy.uix.boxlayout import BoxLayout
+from kivy.uix.popup import Popup
 from kivy.uix.togglebutton import ToggleButton
 
 from entidades import cliente
 from repositorios import cliente_repositorio
+
+class ExclusaoPopup(Popup):
+    pass
 
 class BotaoListagem(ToggleButton):
     def __init__(self, cliente_id, cliente_nome, cliente_idade, **kwargs):
@@ -27,6 +32,16 @@ class Principal(BoxLayout):
     def cliente_selecionado(self, id):
         Principal.id_cliente = id
         #print(id)
+
+    def remover_cliente(self):
+        id = Principal.id_cliente
+        popup = ExclusaoPopup()
+        popup.funcao = partial(self.remover, id)
+        popup.open()
+
+    def remover(self, id):
+        cliente_repositorio.ClienteRepositorio.remover_cliente(id)
+        self.listar_clientes()
 
     def editar_cliente(self):
         id = Principal.id_cliente
