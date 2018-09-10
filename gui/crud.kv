@@ -1,0 +1,39 @@
+<Principal>:
+    orientation: 'vertical'
+    padding: 10
+    spacing: 10
+
+    ScrollView:
+        BoxLayout:
+            id: clientes
+            orientation: 'vertical'
+            size_hint_y: None
+            height: self.minimum_height
+
+    BoxLayout:
+        size_hint_y: None
+        height: "40dp"
+
+        Label:
+            text: "Nome"
+        TextInput:
+            id: nome
+        Label:
+            text: "Idade"
+        TextInput:
+            id: idade
+
+    BoxLayout:
+        size_hint_y: None
+        height: "40dp"
+        Button:
+            text: "Cadastrar"
+            size_hint_x: 15
+            on_release: root.cadastrar_cliente()
+        Button:
+            text: "Remover"
+            size_hint_x: 15
+        Button:
+            text: "Editar"
+            size_hint_x: 15
+
