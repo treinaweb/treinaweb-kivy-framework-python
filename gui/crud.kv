@@ -64,4 +64,17 @@
                 text: 'Não'
                 on_release: root.dismiss()
 
-
+<MensagemPopup>:
+    size_hint: .8, .5
+    BoxLayout:
+        orientation: 'vertical'
+        Label:
+            text: 'Você deve preencher todos os campos'
+            font_size: 25
+            halign: 'center'
+            valign: 'middle'
+        BoxLayout:
+            Button:
+                size_hint: .8, .5
+                text: 'Voltar'
+                on_release: root.dismiss()

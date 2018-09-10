@@ -10,6 +10,9 @@ from repositorios import cliente_repositorio
 class ExclusaoPopup(Popup):
     pass
 
+class MensagemPopup(Popup):
+    pass
+
 class BotaoListagem(ToggleButton):
     def __init__(self, cliente_id, cliente_nome, cliente_idade, **kwargs):
         super(BotaoListagem, self).__init__(**kwargs)
@@ -48,20 +51,27 @@ class Principal(BoxLayout):
 
         nome = self.ids.nome.text
         idade = self.ids.idade.text
-        cli = cliente.Cliente(nome, idade)
-
-        cliente_repositorio.ClienteRepositorio.editar_cliente(id, cli)
-        self.listar_clientes()
+        if nome == '' or idade == '':
+            MensagemPopup().open()
+        else:
+            cli = cliente.Cliente(nome, idade)
+            cliente_repositorio.ClienteRepositorio.editar_cliente(id, cli)
+            self.ids.nome.text = ''
+            self.ids.idade.text = ''
+            self.listar_clientes()
 
     def cadastrar_cliente(self):
         nome = self.ids.nome.text
         idade = self.ids.idade.text
 
-        cli = cliente.Cliente(nome, idade)
-        cliente_repositorio.ClienteRepositorio.inserir_cliente(cli)
-        self.ids.nome.text = ''
-        self.ids.idade.text = ''
-        self.listar_clientes()
+        if nome == '' or idade == '':
+            MensagemPopup().open()
+        else:
+            cli = cliente.Cliente(nome, idade)
+            cliente_repositorio.ClienteRepositorio.inserir_cliente(cli)
+            self.ids.nome.text = ''
+            self.ids.idade.text = ''
+            self.listar_clientes()
 
     def listar_clientes(self):
         self.ids.clientes.clear_widgets()
