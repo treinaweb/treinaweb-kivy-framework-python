@@ -1,3 +1,13 @@
+#### TreinaWeb: curso "Flask - API REST"
+
+Repositório com o código produzido durante o curso "Flask - API REST"".
+
+#### Ferramentas utilizadas no curso:
+
+- Python 3.6.x
+- PyCharm Community Edition
+- MySQL
+
 #### Lista de commits
 Aula | Video | Commit | Link 
 ------ | ------ | ------ | ------ 
