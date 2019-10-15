@@ -1,6 +1,6 @@
-#### TreinaWeb: curso "Flask - API REST"
+#### TreinaWeb: curso "Python - Kivy"
 
-Repositório com o código produzido durante o curso "Flask - API REST"".
+Repositório com o código produzido durante o curso "Python - Kivy".
 
 #### Ferramentas utilizadas no curso:
 
